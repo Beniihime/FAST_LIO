@@ -262,7 +262,7 @@ Visualization Manager:
   Global Options:
     Background Color: 0; 0; 0
     Fixed Frame: camera_init
-    Frame Rate: 30
+    Frame Rate: 60
   Name: root
   Tools:
     - Class: rviz_default_plugins/Interact

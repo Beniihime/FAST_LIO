@@ -502,7 +502,7 @@ void publish_frame_world(rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::Share
         }
 
         sensor_msgs::msg::PointCloud2 laserCloudmsg;
-        pcl::toROSMsg(*laserCloudWorld, laserCloudmsg);
+        pcl::toROSMsg(*feats_undistort, laserCloudmsg);
         // laserCloudmsg.header.stamp = ros::Time().fromSec(lidar_end_time);
         laserCloudmsg.header.stamp = get_ros_time(lidar_end_time);
         laserCloudmsg.header.frame_id = "camera_init";
@@ -1073,7 +1073,7 @@ private:
             if (scan_pub_en)      publish_frame_world(pubLaserCloudFull_);
             if (scan_pub_en && scan_body_pub_en) publish_frame_body(pubLaserCloudFull_body_);
             if (effect_pub_en) publish_effect_world(pubLaserCloudEffect_);
-            // if (map_pub_en) publish_map(pubLaserCloudMap_);
+            // if (true) publish_map(pubLaserCloudMap_);
 
             /*** Debug variables ***/
             if (runtime_pos_log)

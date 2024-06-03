@@ -502,7 +502,7 @@ void publish_frame_world(rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::Share
         }
 
         sensor_msgs::msg::PointCloud2 laserCloudmsg;
-        pcl::toROSMsg(*feats_undistort, laserCloudmsg);
+        pcl::toROSMsg(*laserCloudWorld, laserCloudmsg);
         // laserCloudmsg.header.stamp = ros::Time().fromSec(lidar_end_time);
         laserCloudmsg.header.stamp = get_ros_time(lidar_end_time);
         laserCloudmsg.header.frame_id = "camera_init";
